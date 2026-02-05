@@ -1,0 +1,23 @@
+## here we are running some generic tests on columns
+
+models:
+  - name: fct_orders
+    columns: 
+      - name: order_key
+## It says to check the order_key column in fct_orders (referencing the stg_tpch_orders) if they are unique, not_null 
+        tests: 
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_tpch_orders')
+                field: order_key
+              severity: warn
+      - name: status_code
+## status_code table only accepts these 3 values P, O, F
+        tests:
+          - accepted_values:
+              values: ['P', 'O', 'F']
+
+    
+
