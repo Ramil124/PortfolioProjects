@@ -16,7 +16,7 @@ ORDER BY 1,2;
 
 
 /* Showcasing efficiency improvements
-Quarterly figures for sessio-to-order conversion rate, revenue per order
+Quarterly figures for session-to-order conversion rate, revenue per order
 and revenue per session*/
 
 SELECT YEAR(website_sessions.created_at) as yr,
